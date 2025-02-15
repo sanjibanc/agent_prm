@@ -1,0 +1,7 @@
+rolloutdirs: 
+  - data/alfworld/rollout/rl-llm-agent/Llama-3.2-3B-Instruct-online-dpo-alfworld-iter1
+max_files_per_dir: null 
+outputdir: data/alfworld/prm/iter1
+gamma: 0.95
+train_split: 0.85
+

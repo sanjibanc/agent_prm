@@ -1,0 +1,74 @@
+verbose: 0
+debug: false
+logdir: data/alfworld/evaluate
+exact_path: false
+eval_set: eval_out_of_distribution
+env_batch_size: 1
+start_batch: null
+max_envs: null
+env_seed: 0
+agents:
+  # - type: chat
+  #   model_type: openai
+  #   model_id: gpt-4o
+  #   prompt_template_file: prompts/alfworld/alfworld_template.j2
+
+  # - type: chat
+  #   model_type: anthropic
+  #   model_id: claude-3-5-sonnet-20240620
+  #   prompt_template_file: prompts/alfworld/alfworld_template.j2
+
+  # - type: sglang_server
+  #   model_id: leap-llm/Meta-Llama-3-8B-Instruct-sft-alfworld-iter1
+  #   server_url: http://localhost:30010/
+  #   prompt_template_file: prompts/alfworld/alfworld_template.j2
+  #   temperature: 0.3
+  
+  # - type: best_of_n 
+  #   generator:
+  #     type: mixture
+  #     is_low_var: true
+  #     mixture_agents:
+  #       - type: sglang_server
+  #         model_id: leap-llm/Meta-Llama-3-8B-Instruct-sft-alfworld-iter0
+  #         server_url: http://localhost:30000/
+  #         prompt_template_file: prompts/alfworld/alfworld_template.j2
+  #         temperature: 0.3
+  #         batch_limit: 500
+
+  #       - type: sglang_server
+  #         model_id: leap-llm/Meta-Llama-3-8B-Instruct-sft-alfworld-iter1
+  #         server_url: http://localhost:30010/
+  #         prompt_template_file: prompts/alfworld/alfworld_template.j2
+  #         temperature: 0.3
+  #         batch_limit: 500        
+  #   critic:
+  #     type: sglang_server
+  #     model_id: rl-llm-agent/Llama-3.1-8B-Instruct-Reward-Alfworld-v0
+  #     server_url: http://localhost:30030/
+  #     prompt_template_file: prompts/alfworld/alfworld_reward_template.j2
+  #     batch_limit: 16
+  #   num_generations: 16
+
+  - type: sglang_server
+    model_id: rl-llm-agent/Llama-3.2-3B-Instruct-online-dpo-alfworld-iter0
+    server_url: http://localhost:30000/
+    prompt_template_file: prompts/alfworld/alfworld_template.j2
+    temperature: 0.3
+    batch_limit: 500
+
+  # - type: best_of_n
+  #   generator:
+  #     type: sglang_server
+  #     model_id: rl-llm-agent/Llama-3.2-3B-Instruct-online-dpo-alfworld-iqlearn-iter1
+  #     server_url: http://localhost:30010/
+  #     prompt_template_file: prompts/alfworld/alfworld_template.j2
+  #     temperature: 0.7
+  #     batch_limit: 500
+  #   critic:
+  #     type: sglang_server
+  #     model_id: rl-llm-agent/Llama-3.2-3B-Instruct-reward-alfworld-iqlearn-iter0
+  #     server_url: http://localhost:30020/
+  #     prompt_template_file: prompts/alfworld/alfworld_reward_template.j2
+  #     batch_limit: 4
+  #   num_generations: 16

@@ -1,0 +1,14 @@
+prompt_template_file: prompts/alfworld/alfworld_template.j2
+logs_dir: data/alfworld/rollout/leap-iter1-4k
+data_dir: data/alfworld/sft/leap-iter1-4k
+train_split: 0.85
+input_fields:
+  observation: observation
+  candidate_actions: candidate_actions
+  reason: reason
+  action: action
+  task: task
+output_fields:
+  reason: reason
+  action: action
+

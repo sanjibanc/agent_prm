@@ -1,0 +1,18 @@
+verbose: 0
+debug: false
+logdir: data/alfworld/rollout
+exact_path: false
+start_env_idx: null
+max_env_idxs: null
+eval_set: train
+env_seed: 0
+num_env_batch: 36
+env_batch_size: 128
+num_rollouts_per_env: 16
+agents:
+  - type: sglang_server
+    model_id: rl-llm-agent/Llama-3.2-3B-Instruct-online-dpo-alfworld-iter1
+    server_url: http://localhost:30000/
+    prompt_template_file: prompts/alfworld/alfworld_template.j2
+    temperature: 0.3
+    batch_limit: null
