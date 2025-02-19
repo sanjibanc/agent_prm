@@ -1,6 +1,6 @@
 # <img src="assets/icon.png" alt="Icon" width="50"/> Process Reward Models for LLM Agents: Practical Framework and Directions
 
-Paper link: [TODO](TODO)
+Paper link: [https://arxiv.org/pdf/2502.10325](https://arxiv.org/pdf/2502.10325)
 
 ## Installation
 
